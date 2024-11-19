@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2, h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Welcome, <%= username %></h2>
+
+            <h3>Financial Information</h3>
+            <p>Monthly Income: <%= financialInfo.monthlyIncome %></p>
+            <p>Monthly Expenditures: <%= financialInfo.monthlyExpend %></p>
+            <p>Loan Request: <%= financialInfo.loanRequest %></p>
+            <p>Outstanding Debt: <%= financialInfo.outstandingDebt %></p>
+            <p>Total Assets: <%= financialInfo.totalAssets %></p>
+            <p>Total Liabilities: <%= financialInfo.totalLiabilities %></p>
+
+            <h3>Loan History</h3>
+            <ul>
+                <% financialInfo.loanHistory.forEach(loan => { %>
+                    <li>
+                        <p>Loan Type: <%= loan.LoanType %></p>
+                        <p>Loan Amount: <%= loan.LoanAmount %></p>
+                        <p>Status: <%= loan.loanStatus %></p>
+                        <p>Start Date: <%= loan.startDate %></p>
+                        <p>End Date: <%= loan.endDate %></p>
+                        <p>Interest Rate: <%= loan.interestRate %>%</p>
+                    </li>
+                <% }) %>
+            </ul>
+
+            <a href="/login">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
